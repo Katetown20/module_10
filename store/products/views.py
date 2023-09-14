@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-
-from products.models import Product, ProductCategory, Basket
+from products.forms import CheckoutContactForm
+from products.models import Product, ProductCategory, Basket, Order
 
 from users.models import User
 
@@ -48,3 +48,6 @@ def basket_remove(request, basket_id):
     basket = Basket.objects.get(id=basket_id)
     basket.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+

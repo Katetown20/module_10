@@ -51,3 +51,9 @@ class Basket(models.Model):
     def sum(self):
         return self.product.price * self.quantity
 
+class Order(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=256)
+    phone = models.CharField(max_length=256)
+    address = models.CharField(max_length=256)
+    email = models.EmailField
